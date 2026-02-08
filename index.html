@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bola-Olat Spelling Bee Trainer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <h1>Bola-Olat Spelling Bee Trainer</h1>
+    <p class="sub">British English spelling. Practice, timed tests, and round-based training.</p>
+  </header>
+
+  <main class="wrap grid">
+    <section class="card">
+      <h2>Mode</h2>
+      <div class="row">
+        <label class="pill"><input type="radio" name="mode" value="practice" checked /> Practice</label>
+        <label class="pill"><input type="radio" name="mode" value="test" /> Test</label>
+      </div>
+
+      <div class="row">
+        <label>Round</label>
+        <select id="roundSelect"></select>
+      </div>
+
+      <div class="row">
+        <label>Questions</label>
+        <select id="countSelect">
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20" selected>20</option>
+          <option value="30">30</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <label>Timer (Test mode)</label>
+        <select id="timerSelect">
+          <option value="0">No timer</option>
+          <option value="20">20 seconds per word</option>
+          <option value="30" selected>30 seconds per word</option>
+          <option value="45">45 seconds per word</option>
+        </select>
+      </div>
+
+      <button id="startBtn" disabled>Start</button>
+      <p class="hint">Tip: Use Chrome, Edge, or Firefox for the clearest voice output.</p>
+    </section>
+
+    <section class="card">
+      <h2>Question</h2>
+      <div id="status" class="status">Load the word list to begin.</div>
+
+      <div class="controls">
+        <button id="sayBtn" disabled>Say word</button>
+        <button id="repeatBtn" disabled>Repeat</button>
+        <button id="hintBtn" disabled>Hint</button>
+      </div>
+
+      <div class="row">
+        <input id="answer" type="text" placeholder="Type the spelling here" autocomplete="off" disabled />
+        <button id="submitBtn" disabled>Submit</button>
+      </div>
+
+      <div id="feedback" class="feedback"></div>
+
+      <div class="row">
+        <button id="nextBtn" disabled>Next</button>
+        <button id="endBtn" disabled class="ghost">End session</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Score</h2>
+      <div class="scoreline">
+        <div><span class="k">Correct</span> <span id="correct">0</span></div>
+        <div><span class="k">Wrong</span> <span id="wrong">0</span></div>
+        <div><span class="k">Progress</span> <span id="progress">0/0</span></div>
+      </div>
+
+      <div class="row">
+        <label class="pill"><input id="strictToggle" type="checkbox" /> Strict marking</label>
+      </div>
+
+      <p class="small">
+        Strict marking treats spaces and hyphens as real characters.
+        Non-strict marking ignores extra spaces and hyphens.
+      </p>
+
+      <h3>Student history (this device)</h3>
+      <div id="history" class="history"></div>
+      <button id="clearHistoryBtn" class="ghost">Clear history</button>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Built for Bola-Olat Private College.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
